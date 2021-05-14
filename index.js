@@ -3,25 +3,15 @@ import Player from "./player.js"
 let canvas = document.getElementById("playField");
 let cx = canvas.getContext("2d");
 
-const GAME_WIDTH = 400;
-const GAME_HEIGHT = 400;
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 800;
 const PLAYER_SIZE = 40;
 
-let player = new Player(PLAYER_SIZE, GAME_WIDTH, GAME_HEIGHT);
+let player = new Player("#0f0", PLAYER_SIZE, GAME_WIDTH / 2 - PLAYER_SIZE / 2 , GAME_HEIGHT / 2 - PLAYER_SIZE / 2);
 player.draw(cx);
 
-let lastTime = 0;
-
-// function gameLoop(timestamp)
-// {
-//     let dT = timestamp - lastTime;
-//     lastTime = timestamp;
-
-//     cx.clearRect(0, 0, 400, 400);
-//     player.update(dT);
-//     player.draw(cx);
-
-//     requestAnimationFrame(gameLoop);
-// }
-
-// gameLoop();
+window.addEventListener('click', (event) =>
+{
+    let clickedPlayer = new Player("#f00", PLAYER_SIZE / 2, event.clientX, event.clientY);
+    clickedPlayer.draw();
+});
