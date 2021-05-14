@@ -1,24 +1,19 @@
 export default class Player
 {
-    constructor(size, gameWidth, gameHeight)
+    constructor(color, size, positionX, positionY)
     {
+        this.color = color
         this.width = size;
         this.height = size;
         this.position = {
-            x: gameWidth / 2 - this.width / 2 ,
-            y: gameHeight / 2 - this.height / 2
+            x: positionX,
+            y: positionY
         };
     }
 
     draw(cx)
     {
-        cx.fillStyle = '#0f0';
+        cx.fillStyle = this.color;
         cx.fillRect(this.position.x, this.position.y, this.width, this.height);
-    }
-
-    update(dT)
-    {
-        if (!dT) return;
-        this.position.x += 5 / dT;
     }
 }
