@@ -13,5 +13,5 @@ player.draw(cx);
 window.addEventListener('click', (event) =>
 {
     let clickedPlayer = new Player("#f00", PLAYER_SIZE / 2, event.clientX, event.clientY);
-    clickedPlayer.draw();
+    clickedPlayer.draw(cx);
 });
